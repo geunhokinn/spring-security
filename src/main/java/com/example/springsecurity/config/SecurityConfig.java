@@ -22,11 +22,10 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                .requestMatchers("/", "/login").permitAll() // Allow all users access to /login and /
+                .requestMatchers("/", "/login", "/loginProc", "/join", "/joinProc").permitAll() // Allow all users access to "/", "/login", "/loginProc", "/join", and "/joinProc"
                 .requestMatchers("/admin").hasRole("ADMIN") // Allow user access with ADMIN role for /admin
                 .requestMatchers("/my/**").hasAnyRole("ADMIN","USER") // Allow user access with ADMIN, USER role for /my/**
                 .anyRequest().authenticated()); // Allow access to only logged-in users for the rest of the path
-
 
         http
                 .formLogin((auth) -> auth.loginPage("/login") // Redirection to login page
