@@ -29,7 +29,7 @@ public class JoinService {
         User user = User.buildUser(
                 joinDTO.getUsername(),
                 bCryptPasswordEncoder.encode(joinDTO.getPassword()), // One-way hashing processing
-                "ROLE_USER"
+                "ROLE_ADMIN"
         );
 
         userRepository.save(user);
