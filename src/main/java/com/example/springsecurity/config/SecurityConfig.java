@@ -36,6 +36,15 @@ public class SecurityConfig {
         http
                 .csrf((auth) -> auth.disable()); // Unset csrf(cross site request forgery)
 
+        http
+                .sessionManagement((auth) -> auth
+                        .maximumSessions(1) // Allow up to one duplicate login
+                        .maxSessionsPreventsLogin(true)); // Block new login when exceeded
+
+        http
+                .sessionManagement((auth) -> auth
+                        .sessionFixation().changeSessionId()); // Change id for same session at login
+
         return http.build();
     }
 }
