@@ -9,3 +9,8 @@ spring:
     show-sql: true
     properties:
       hibernate.format_sql: true
+
+server:
+  servlet:
+    session:
+      timeout: 90m
