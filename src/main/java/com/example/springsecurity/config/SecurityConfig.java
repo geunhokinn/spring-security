@@ -33,8 +33,8 @@ public class SecurityConfig {
                         .permitAll()); // Allow access to all
 
 
-        http
-                .csrf((auth) -> auth.disable()); // Unset csrf(cross site request forgery)
+//        http
+//                .csrf((auth) -> auth.disable()); // Unset csrf(cross site request forgery)
 
         http
                 .sessionManagement((auth) -> auth
